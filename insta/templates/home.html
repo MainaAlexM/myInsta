@@ -1,0 +1,116 @@
+{%extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container home">
+    <div class="row">
+        <div class="col-xs-6 col-md-6">
+            {% if images %} {% for image in images %}
+            <div class="card" style="margin-bottom: 5rem;">
+                <div class="card-header display-flex">
+                    <div class="profile-pic">
+                        <a href="/profile/{{image.profile.id}}">
+                            <img class="picture" src="{{image.profile.profile_pic.url}}" alt="user"/>
+                        </a>
+                    </div>
+                    <div class="profile">
+                        <a href="/profile/{{image.profile.id}}" class="profile_tag" style="font-weight:bold; font-size:1rem">{{image.profile}}</a>
+                    </div>
+                </div>
+                <img src="{{image.image.url}}" class="card-img-top" alt="upload" style="height: 40rem; object-fit:cover"/>
+                <div class="card-body">
+                    <form action="{% url 'like_image' image_id=image.id %}">
+                        {% csrf_token %}
+                        <button type="submit" name="image_id" value="{{image.id}}" style="border: 0px; background-color: transparent; margin-bottom: 1rem; display: flex; justify-content: space-around!important;">
+                            <img src="{% static 'images/nav-heart.png' %}" class="post-icon" alt="heart">&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#" style="text-decoration: none;"><img src="{% static 'images/comments.png' %}" class="post-icon" alt="comments">&nbsp;&nbsp;&nbsp;
+                            </a>
+                            <img src="{% static 'images/send.png' %}" class="post-icon" alt="send">
+                        </button>    
+                    </form>
+                    <div class="liked-count" style="font-size: 1rem;">{{image.likes.count}} likes</div>
+                    <div class="post">
+                        <a href="#" class="likes" style="color: black;"><strong>{{image.profile}}</strong></a>
+                        <span class="post-link">{{image.caption}}</span>
+                        <div class="text-muted" style="font-size: 1rem; margin-top: 1%">
+                            Comments
+                        </div>
+                        {% for comment in comments %} {% if comment.image.id == image.id %}
+                        <div>
+                            <a href="#" class="likes"><strong style="font-size: 1rem; color: black;">{{comment.user}}</strong></a>
+                            <span class="post-link" style="font-size: 1rem; margin-bottom: 2vw;">{{comment.content}}</span>
+                        </div>
+                        {% endif %} {% endfor %}
+                        <div class="text-muted">{{image.post_date | timesince }} ago</div> 
+                    </div>
+                </div>
+                <div class="card-footer" style="padding: 0">
+                    <form role="add_comment" , action="{% url 'comment' image_id=image.id %}">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Add a comment" name="comment"
+                                style="font-size: 1rem; border: 0;">
+                            <div class="input-group-btn">
+                                <button class="btn" type="submit" style="font-size: 1rem; opacity: 0.5;"> Post</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="nothing text-center">
+                <h2 class="text-center">Nothing Posted</h2>
+                <p>Follow Friends and Users or Share Your Personal Collections</p>
+            </div>
+            {% endif %}
+        </div>
+        <!-- EDITING THIS PART -->
+        <div class="col-xs-6 col-md-6">
+            <div class="card">
+                <div class="card-header" style="font-size: 1rem; display: flex; justify-content: space-between!important;">
+                    <p style="color: #8e8e8e;">Recommendations</p>
+                    <a href="#" style="text-decoration: none; color:black"><strong>View All</strong></a>
+                </div>
+                <div style="font-size: 1rem; display: flex; justify-content: space-between!important;" class="p-3">
+                    <a href="/profile/{{prof.id}}" style="color: black;font-weight: bold!important;">
+                        <img src="{% static 'images/rider.jpg'%}" alt="avatar" class="picture">&nbsp;&nbsp;&nbsp;&nbsp;Rider
+                    </a>
+                    <a href="#" style="text-decoration: none;"><strong>Follow</strong></a>
+                </div>
+                <div style="font-size: 1rem; display: flex; justify-content: space-between!important;" class="p-3">
+                    <a href="/profile/{{prof.id}}" style="color: black;font-weight: bold!important;">
+                        <img src="{% static 'images/elon.jpg'%}" alt="avatar" class="picture">&nbsp;&nbsp;&nbsp;&nbsp;Elon
+                    </a>
+                    <a href="#" style="text-decoration: none;"><strong>Follow</strong></a>
+                </div>
+                <div style="font-size: 1rem; display: flex; justify-content: space-between!important;" class="p-3">
+                    <a href="/profile/{{prof.id}}" style="color: black;font-weight: bold!important;">
+                        <img src="{% static 'images/fasc.png'%}" alt="avatar" class="picture">&nbsp;&nbsp;&nbsp;&nbsp;fasc
+                    </a>
+                    <a href="#" style="text-decoration: none;"><strong>Follow</strong></a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for prof in suggestions %}
+                    {% if prof == loggedIn%}
+                    {% else %}
+                    <li class="list-group-item display-flex">
+                        <div class="profile-pic">
+                            <a href="/profile/{{prof.id}}"><img src="{{prof.profile_pic.url}}" alt="avatar" class="picture"></a>
+                        </div>
+                        <div class="profile">
+                            <a href="/profile/{{prof.id}}" class="profile_tag" style="font-size: 1rem;"><strong>{{prof.user.username}}</strong></a>
+                            <a href="#" style="text-decoration: none"><strong>Follow</strong></a>                  
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <footer>
+                <p class="text-center"> <b>Instergrahm &copy; 2022 from metta</b> </p>
+            </footer>
+        </div>
+    </div>
+</div>
+{% endblock %}
