@@ -1,4 +1,4 @@
-# myInsta
+# myInsta Clone
 A photo sharing Social Media app for multiple users cloned from the Instagram App
 
 A user can create an account, post, follow and comment on other people's posts while signed in.
