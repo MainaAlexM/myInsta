@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+*:focus{
+    outline: none;
+}
+.home{
+    margin-top: 5vw;
+}
+.navbar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: rgb(230, 230, 230);
+    border-bottom: 1px solid #dfdfdf;
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+    background-attachment: fixed;
+}
+.nav-wrapper{
+    width: 70%;
+    max-width: 1000px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.brand-img{
+    height: 100%;
+    margin-top: 5px;
+}
+
+.search-box{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 200px;
+    height: 27px;
+    background: #f3f3f3;
+    border: 1px solid #dfdfdf;
+    border-radius: 2px;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    text-transform: capitalize;
+    margin-left: -2vw;
+}
+.field{
+    margin-top: -3vw;
+}
+.search-box::placeholder{
+    color: rgba(0, 0, 0, 0.5);
+}
+.nav-items{
+    height: 22px;
+    position: relative;
+    margin-top: -1.5vw;
+    margin-left: -2.5vw;
+}
+
+.icon{
+    height: 100%;
+    cursor: pointer;
+    margin: 0 10px;
+    display: inline-block;
+}
+.user-profile{
+    width: 22px;
+    border-radius: 50%;
+}
+.intro{
+    color: #8e8e8e;
+    color: rgba(var(--f52,142,142,142),1);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0 40px 10px;
+    text-align: center;
+}
+.display-flex{
+    display: flex;
+    text-align: center;
+}
+.profile-pic {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.picture {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.profile {
+    margin: 10px 15px;
+}
+.profile_tag {
+    font-size: 1.4rem;
+}
+.profile a {
+    text-decoration: none;
+    color: #262626;
+}
+.input-group .form-control{
+    z-index: 0 !important;
+}
+footer {
+    margin: 0 auto 30px auto;
+    max-width: 935px;
+}
+footer ul { margin-bottom: 20px; }
+footer ul li { 
+    margin: 0 10px 10px;
+} 
+footer ul li a { 
+    color: #385185;
+}
+footer .copyright { color: #808080; }
+footer ul li a,
+footer .copyright { 
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+.register{
+    display: flex;
+    justify-content: center;
+    padding: 0 auto;
+}
+.form-data form{
+    background-color: #fff;
+    border: 2px solid #eee;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 4rem;
+    text-align: center;
+}
+.form-data form input{
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    border: 2px solid #eee;
+}
+
+.app-download { padding: 15px; }
+.app-download p { padding: 10px 0; }
+.app-download img { 
+    height: 40px; 
+    margin: 0 5px;
+}
+
+.op {
+    height: 3px;
+    width: 3px;
+    margin: 1px;
+    background-color: #262626;
+    border-radius: 50%;
+}
+.nothing{
+    margin-top: 5vw;
+    text-align: center;
+    align-items: center;
+}
+.post-icon{
+    height: 25px;
+    width: 25px;
+}
+.post-icon:hover{
+    opacity: 0.5;
+}
+.main-footer{
+    opacity: 0.3;
+    color: #8e8e8e;
+}
+.main-footer li a{
+    color: #8e8e8e;
+    text-transform: lowercase;
+    text-align: left;
+}
+.main-footer p {
+    color: #8e8e8e;
+    opacity: 0.3;
+}
+.copyright-me{
+    color: #8e8e8e;
+    opacity: 0.3;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+}
+.profile-info{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #8e8e8e;
+    font-size: small;
+}
+.profile-info p:hover{
+    color: black;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+    main { margin: 30px auto 50px auto; }
+    footer .copyright,
+    footer ul li a { font-size: 13px; }
+}
+
+@media screen and (max-width: 767px) {
+    .nav-items{
+        height: 20px;
+        position: relative;
+        margin-top: -4vw;
+    }
+    .navbar{
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background: #fff;
+        border-bottom: 1px solid #dfdfdf;
+        display: flex;
+        justify-content: center;
+        /* padding: 5px 0; */
+        background-attachment: fixed;
+    }
+    .nav-wrapper{
+        width: 70%;
+        max-width: 350vw;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .brand-img{
+        height: 50%;
+        margin-top: 3px;
+    }
+    .icon{
+        height: 100%;
+        cursor: pointer;
+        margin: 0 4px;
+        display: inline-block;
+    }
+    .search-box{
+        position: absolute;
+        left: 30%;
+        transform: translate(-50%);
+        width: 100px;
+        height: 27px;
+        background: #fafafa;
+        border: 1px solid #dfdfdf;
+        border-radius: 2px;
+        color: rgba(0, 0, 0, 0.5);
+        text-align: center;
+        text-transform: capitalize;
+    }
+    .go-now{
+        /* left: 30%; */
+        margin-left: -10vw;
+    }
+    .field{
+        margin-top: -6vw;
+    }
+    .search-box::placeholder{
+        color: rgba(0, 0, 0, 0.5);
+    }
+    .home{
+        margin-top: 9vw;
+    }
+    .drop{
+        padding: 0%;
+        margin-left: -2vw;
+    }
+    .intro{
+        color: #8e8e8e;
+        color: rgba(var(--f52,142,142,142),1);
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 20px;
+        margin: 0 40px 10px;
+        text-align: center;
+    }
+}
+.drop{
+    padding: 0%;
+    margin-left: -1vw;
+}
+.bug{
+    margin-top: 10vw;
+}
+.bugs{
+    margin-top: 3vw;
+}
+.btn-primary{
+    background-color: #3897f0!important;
+    border: 1px solid #3897f0!important;
+}
+.searches{
+    margin-top: 80%!important;
+    padding-top: 50%!important;
+}
+.result{
+    margin-top: 7vw;
+}
+.rectify{
+    margin-top: 7vw;
+}
+.search-text{
+    align-items: center;
+    margin-top: 5vw;
+}
