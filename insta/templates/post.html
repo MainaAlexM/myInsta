@@ -1,0 +1,106 @@
+<div class="section">
+    <div class="top-section">
+        <div class="section-title">
+            <div class="profile-pic">
+                <a href="#">
+                    <img class="picture"
+                        src="{% static 'images/fasc.png'%}"
+                        alt="user">
+                </a>
+            </div>
+            <div class="profile">
+                <a href="#" class="profile_tag">{{image.profile}}</a>
+            </div>
+        </div>
+        <div class="opt">
+            <a href="#" class="options">
+                <div class="op"></div>
+                <div class="op"></div>
+                <div class="op"></div>
+            </a>
+        </div>
+    </div>
+    <div class="upload">
+        <img class="upload-content"
+            src="{{image.image.url}}">
+    </div>
+    <div class="upload-actions">
+        <button class="u-actions-li">
+            <a href="#">
+                <img height="28px"
+                    src="https://www.pinclipart.com/picdir/big/33-337369_heart-shaped-clipart-instagram-heart-sign-icon-transparent.png"
+                    alt="">
+            </a>
+        </button>
+        <button class="u-actions-li">
+            <a href="#">
+                <img height="28px"
+                    src="https://cdn0.iconfinder.com/data/icons/instagram-ui-1/24/Instagram-UI_comment-512.png"
+                    alt="">
+            </a>
+        </button class="u-actions-li">
+        <button class="u-actions-li">
+            <a href="#">
+                <img height="28px" src="https://qph.fs.quoracdn.net/main-qimg-094b6418c35690a0a9425642728f081b"
+                    alt="">
+            </a>
+        </button>
+        <button class="u-actions-li aside-tag">
+            <a href="#">
+                <img class="tag" height="28px"
+                    src="https://cdn.clipart.email/51d663379c2127f9240f6b677bce03a2_flag-instagram-interface-save-tag-icon_512-512.png"
+                    alt="">
+            </a>
+        </button>
+    </div>
+    <div class="liked">
+        <p class="liked-count">
+            Liked by <a class="likes" href="#">Rider</a> and <button class="others">others</button>
+        </p>
+    </div>
+    <div class="upload-caption">
+        <span class="post">
+            <a href="#" class="likes">{{image.profile}}</a>
+            <span class="post-link">
+                {{image.caption}}
+            </span>
+        </span>
+    </div>
+    <div class="upload-caption comments liked">
+        <a class="likes comment" href="#">View all comments</a>
+    </div>
+    {% for comment in comments %}
+    {% if comment.image.id == image.id %}
+    <div class="upload-caption comments">
+        <span class="post">
+            <a href="#" class="likes">{{comment.user}}</a>
+            <span class="post-link">{{comment.content}}</span>
+            <span class="post-link">
+                <button class="u-actions-li  like">
+                    <a href="#" class="push2">
+                        <img height="12px"
+                            src="https://www.pinclipart.com/picdir/big/33-337369_heart-shaped-clipart-instagram-heart-sign-icon-transparent.png"
+                            alt="">
+                    </a>
+                </button>
+            </span>
+        </span>
+    </div>
+    {% endif %}
+    {% endfor %}
+    <div class="time-stamp liked">{{image.post_date | timesince }} ago</div>
+    <div class="submit">
+        <div class="">
+            <form role="add_comment" , action="{% url 'comment' image_id=image.id %}">
+                {% csrf_token%}
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Add a comment" name="comment">
+                    <div class="input-group-btn">
+                        <button class="btn" type="submit"> Post</button>
+    
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
