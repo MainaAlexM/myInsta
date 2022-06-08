@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+
+{% if results %}
+<div class="mt-5 container">
+    <h3 class="text-center result">Found {{ results|length }} user{{ results|pluralize }}</h5>
+    <p>{{profile.user.username}}</p>
+    {% else %}
+    <div class="rectify"></div>
+    <h3 class="text-center"> Found no result with username <strong>{{message}}</strong></h5>
+    <a class="d-block mx-auto" href="/">
+        <button class="btn btn-sm btn-primary d-block mx-auto">Back Home</button>
+    </a>
+</div>
+{% endif %}
+{% if results %}
+
+    {% for profile in results %}
+    <div class="text-center row container">
+        <div class="col-md-3 mt-4">
+            <img class="user-img" style="width: 12rem; height: 12rem; object-fit: cover; margin-right: 3rem; border-radius: 50%;" src="{{profile.profile_pic.url}}" alt=""/>
+        </div>
+        <div class="col-md-3 search-text">
+            <h5 style="font-weight: 700">{{profile.user.username}}</h3>
+            <p style="font-size: 1.2rem">{{profile.bio}}</p>        
+        </div>
+    </div>
+
+
+    {% endfor %}
+
+{% endif %}
+
+
+{% endblock %}
+
