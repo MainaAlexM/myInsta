@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container">
+    <form action="{%url 'create_profile'%}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1 title="Instagram" class="flex justify-content-center text-center">
+            <img src="{% static 'images/instagram-logo.png' %}" alt="Instagram logo" title="Instagram logo" style="margin-top: 5vw;"/>
+        </h1>
+        <h2 class="intro">Get started by creating a profile</h2>
+        {% bootstrap_form form%}
+        <button class="form-btn btn btn-primary btn-block" type="submit">Create Profile</button>
+    </form>
+</div>
+{% endblock %}
