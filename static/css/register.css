@@ -1,0 +1,93 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    background-color: #efeded!important;
+}
+.phone{
+    padding-top: 70px;
+    height: 650px;
+    float: right;
+    margin: 10px;
+}
+.container{
+    margin-top: 20px;
+}
+.right-column{
+    background: #efeded;
+    border: 1px solid #e6e6e6;
+    width: 350px;
+    margin: 10px;
+    padding: 40px;
+}
+.instagram-logo{
+    margin: 15px auto;
+}
+.info{
+    font-weight: 600px;
+    line-height: 20px;
+    font-size: 17px;
+    color: #999;
+    text-decoration: none!important;
+
+}
+button img{
+    height: 18px !important;
+    padding: 0 8px 2px;
+}
+.au{
+    font-size: 13px!important;
+    color: #999;
+    font-weight: 600;
+    margin-top: 1vw;
+}
+.au::before{
+    content: '';
+    background: #efefef;
+    display: block;
+    height: 2px;
+    width: 105px;
+    position: relative;
+    top: 11px;
+}
+.au::after{
+    content: '';
+    background: #efefef;
+    display: block;
+    height: 2px;
+    width: 105px;
+    position: relative;
+    bottom: 10px;
+    left: 160px;
+}
+.register-form{
+    margin-top: -3vw;
+}
+.btn{
+    margin: 12px auto;
+    padding: 2px!important;
+    font-weight: 600!important;
+}
+.btn-primary{
+    background-color: #3897f0!important;
+    border: 1px solid #3897f0!important;
+}
+.terms{
+    line-height: 18px;
+    font-size: 14px;
+    color: #999;
+    margin: 5px 20px;
+}
+.right-column-login{
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    width: 350px;
+    margin: 10px;
+    padding: 20px;
+    text-decoration: none!important;
+}
+.right-column-login a:hover{
+    text-decoration: none!important;
+}
