@@ -1,0 +1,3 @@
+Hello {{name}}
+
+Welcome to Instagram-Lite. Share your photos and videos with your friends and the world.
