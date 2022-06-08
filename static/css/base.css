@@ -8,20 +8,25 @@
 *:focus{
     outline: none;
 }
+.card{
+    background-color: grey;
+    float: right;
+}
 .home{
     margin-top: 5vw;
+    background-color: #9fd0cd;
 }
 .navbar{
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px;
+    height: 4rem;
     background: rgb(230, 230, 230);
     border-bottom: 1px solid #dfdfdf;
     display: flex;
     justify-content: center;
-    padding: 5px 0;
+    padding: 01rem ;
     background-attachment: fixed;
 }
 .nav-wrapper{
@@ -34,13 +39,13 @@
 }
 .brand-img{
     height: 100%;
-    margin-top: 5px;
+    margin: 5px 3px;
 }
 
 .search-box{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
+    /* position: absolute; */
+    left: 100%;
+    /* transform: translate(-50%); */
     width: 200px;
     height: 27px;
     background: #f3f3f3;
@@ -49,7 +54,7 @@
     color: rgba(0, 0, 0, 0.5);
     text-align: center;
     text-transform: capitalize;
-    margin-left: -2vw;
+    /* margin-left: -2vw; */
 }
 .field{
     margin-top: -3vw;
@@ -71,7 +76,7 @@
     display: inline-block;
 }
 .user-profile{
-    width: 22px;
+    width: 5rem;
     border-radius: 50%;
 }
 .intro{
@@ -112,6 +117,7 @@
     z-index: 0 !important;
 }
 footer {
+    clear: both;
     margin: 0 auto 30px auto;
     max-width: 935px;
 }

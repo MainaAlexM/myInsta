@@ -2,11 +2,11 @@
 {% load static %}
 {% load bootstrap4 %}
 {% block content %}
-<div class="container home">
+<div class="container-fluid home">
     <div class="row">
         <div class="col-xs-6 col-md-6">
             {% if images %} {% for image in images %}
-            <div class="card" style="margin-bottom: 5rem;">
+            <div class="card" style="margin-bottom: 5rem; width: 35rem;">
                 <div class="card-header display-flex">
                     <div class="profile-pic">
                         <a href="/profile/{{image.profile.id}}">
@@ -17,7 +17,7 @@
                         <a href="/profile/{{image.profile.id}}" class="profile_tag" style="font-weight:bold; font-size:1rem">{{image.profile}}</a>
                     </div>
                 </div>
-                <img src="{{image.image.url}}" class="card-img-top" alt="upload" style="height: 40rem; object-fit:cover"/>
+                <img src="{{image.image.url}}" class="card-img-top" alt="upload" style="height: 30rem; object-fit:cover"/>
                 <div class="card-body">
                     <form action="{% url 'like_image' image_id=image.id %}">
                         {% csrf_token %}
@@ -65,10 +65,10 @@
             </div>
             {% endif %}
         </div>
-        <!-- EDITING THIS PART -->
+        <!-- Recommendations -->
         <div class="col-xs-6 col-md-6">
-            <div class="card">
-                <div class="card-header" style="font-size: 1rem; display: flex; justify-content: space-between!important;">
+            <div class="card recommendations">
+                <div class="card-header" style="font-size: 1rem; display: flex; justify-content: space-between!important; width: 15rem;">
                     <p style="color: #8e8e8e;">Recommendations</p>
                     <a href="#" style="text-decoration: none; color:black"><strong>View All</strong></a>
                 </div>
@@ -131,10 +131,12 @@
                     {% endfor %}
                 </ul>
             </div>
-            <footer>
-                <p class="text-center"> <b>Instergrahm &copy; 2022 from metta</b> </p>
-            </footer>
+            
         </div>
     </div>
+    <hr>
+    <footer style="height: 5rem; font-size:larger">
+        <p class="text-center"> <b>Instergrahm &copy; 2022 from Instagram</b> </p>
+    </footer>
 </div>
 {% endblock %}
