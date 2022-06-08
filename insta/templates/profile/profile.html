@@ -1,0 +1,95 @@
+{%extends 'base.html'%}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="row" style="padding-top: 2rem">
+  <div class="col-xs-12 col-md-3"></div>
+  <div class="col-xs-12 col-md-6">
+    {% if no_search %}
+    <p class="text-center" style="font-size: 2rem; margin-top: 3vw;">{{no_search}}</p>
+    {% else %} 
+    {% if profile %}
+    <div id="profile" style="margin-top: 3vw;">
+      <div class="display-flex">
+        <div class="pro">
+          <img
+            class="user-img" style="width: 12rem; height: 12rem; object-fit: cover; margin-right: 3rem; border-radius: 50%;" src="{{profile.profile_pic.url}}" alt=""/>
+        </div>
+        <div class="profile" style="padding-top: 3rem">
+          <h3 style="font-weight: 700">{{profile.user.username}}</h3>
+          <p style="font-size: 1.2rem">{{profile.bio}}</p>
+          <a href="/create_profile"><button class="btn btn-outline-secondary"><b>Edit Profile</b></button></a>
+          {% if profile.user.username == request.user.username %}
+          {% else %} 
+          {% if follow_form %}
+          <form action="/profile/{{profile.id}}" method="post" style="margin-top: 2rem">
+            {%csrf_token%}
+            {% bootstrap_form follow_form%}
+            <!-- {% if request.user == user %} EditBtn {% else %}  followBtn {% endif %} -->
+            <input type="submit" class="btn btn-primary" name="follow" value="Follow" style="background-color: #003569 !important; padding: 6px 9px;"/>
+          </form>
+          {% endif %}
+          {% if unfollow_form %}
+          <form action="/profile/{{profile.id}}" method="post" style="margin-top: 2rem;">
+            {% csrf_token %}
+            {% bootstrap_form unfollow_form %}
+            <input type="submit" class="btn btn-info" name="unfollow" value="Unfollow" style="color: #003569 !important; padding: 6px 9px;">
+          </form>
+          {% endif %}
+          {% endif %}
+        </div>
+      </div>
+      <hr>
+      <div class="display-flex" style="margin-top: 2rem; justify-content: space-between!important; cursor: pointer;">
+        <div class="col-stats">
+          <strong style="font-size: 1.2rem">{{posts}}</strong>
+          <br />
+          <p style="font-size: 1rem">posts</p>
+        </div>
+        <div class="col-stats">
+          <strong style="font-size: 1.2rem">{{profile.followers}}</strong>
+          <br />
+          <p style="font-size: 1rem">followers</p>
+        </div>
+        <div class="col-stats">
+          <strong style="font-size: 1.2rem">{{profile.following}}</strong>
+          <br />
+          <p style="font-size: 1rem">following</p>
+        </div>
+      </div>
+      <hr>
+      <div class="row text-center profile-info">
+        <div class="col-sm-4">
+          <p>Posts</p>
+        </div>
+        <div class="col-sm-4">
+          <p>Saved</p>
+        </div>
+        <div class="col-sm-4">
+          <p>Tagged</p>
+        </div>
+      </div>
+      <div class="row">
+        {% if images %}
+        {% for image in images %}
+        <div class="col-md-4 col-sm-4 mt-3" style="object-fit: cover">
+          <img src="{{image.image.url}}" alt="" style="width: 20rem; height: 20rem; object-fit: cover">
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+
+    </div>
+    {% else %}
+    <h5 style="font-size: 2rem">No user with username "{{search}}"</h5>
+    {% endif %}
+    {% endif %}
+  </div>
+  <div class="col-xs-12 col-md-3"></div>
+</div>
+<div class="container-fluid">
+  <footer>
+    <p class="text-center"> <b>Instergrahm &copy; 2022 from metta</b> </p>
+  </footer>
+</div>
+{% endblock %}
