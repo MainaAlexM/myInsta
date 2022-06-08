@@ -150,5 +150,20 @@ def home(request):
     print(suggestions[0])
     return render(request, 'home.html', {"images":display_images,"liked":liked, "comments":comments, "title":title, "suggestions":suggestions, "loggedIn":logged_in})
 
+# Profile Search
+def search_profile(request):
+    if 'search_user' in request.GET and request.GET['search_user']:
+        name = request.GET.get("search_user")
+        results = Profile.search_profile(name)
+        print(results)
+        message = f'name'
+        context = {
+            'results': results,
+            'message': message
+        }
+        return render(request, 'search.html', context)
+    else:
+        message = "No username was found !"
+    return render(request, 'search.html', {'message': message})
 
 
